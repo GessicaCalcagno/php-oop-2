@@ -25,7 +25,7 @@ $prodotto2 = new Prodotti("palla", 10.09, 11222, $categoria_gatto);
 var_dump($prodotto2);
 
 
-//food
+//FOOD
 $cibo_cane = new Cibi("croccantini", 6.12, 12345, $categoria_cane, 2025, 500, "pollo");
 $cibo_cane->setImmagine("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.DT9mvvz-wwQNM3Ra-fjnfQHaHa%26pid%3DApi&f=1&ipt=7e775321feec46ed595beb06389420eec101263d39b82cd6db48ba658a41ffc4&ipo=images");
 var_dump($cibo_cane);
@@ -39,9 +39,10 @@ var_dump($cibo_gatto);
 $topo_gioco = new Giochi("Topo meccanico", 5.2, 11111, $categoria_gatto);
 $topo_gioco->setImmagine("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.SNpdl6ySS679oY5-05fcTgHaFa%26pid%3DApi&f=1&ipt=09346e87910e51629c1a3f883e61a1144f94658f251b762a9e41092381373664&ipo=images");
 
+//Creo catalago array per creare il foreach
 $catalogo = [$cibo_cane, $cibo_gatto, $topo_gioco];
 
-
+//Tray catch
 try {
     $cibo_cane->setSconto(15);
     echo "Prezzo del prodotto dopo sconto: " . $cibo_cane->getPrezzoDopoSconto() . "€\n";
@@ -75,7 +76,9 @@ try {
                     <div class="card" >
                         <img src="<?php echo $prodotto->getImmagine(); ?>" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title"><?php echo $prodotto->getNome() ?></h5>
+                            <h5 class="card-title"><?php echo $prodotto->getNome() ?>
+                            <i class="<?php echo $prodotto->getCategoria()->getIcone(); ?>"></i>
+                        </h5>
                             <p class="card-text">Prezzo: <?php echo $prodotto->getPrezzo() ?> euro</p>
                             <p class="card-text">Scontato: <?php echo $prodotto->getSconto() ?> %</p>
                             <p class="card-text">Prezzo scontato: <?php echo $prodotto->getPrezzoDopoSconto() ?> euro</p>

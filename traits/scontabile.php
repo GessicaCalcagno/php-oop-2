@@ -1,4 +1,5 @@
 <?php
+//Trait
 trait HaSconto {
     private $sconto = 0;
 
